@@ -19,9 +19,12 @@
     subscription = Subscription.create(
       title: Faker::Subscription.plan,
       price: Faker::Number.decimal(l_digits: 2),
-      customer_id: customer.id,
       status: Faker::Number.between(from: 0, to: 2),
       frequency: Faker::Number.between(from: 0, to: 2)
+    )
+    CustomerSubscription.create(
+      customer_id: customer.id,
+      subscription_id: subscription.id
     )
     tea = Tea.create(
       title: Faker::Tea.variety,
