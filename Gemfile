@@ -39,11 +39,11 @@ gem 'bootsnap', require: false
 # gem "rack-cors"
 
 group :development, :test do
+  gem 'factory_bot_rails'
+  gem 'pry'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
-  gem 'factory_bot_rails'
-  gem 'pry'
 end
 
 group :development do
