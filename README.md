@@ -22,18 +22,22 @@ End Points:
 To Show all of a customer's subscriptions
 GET /api/v1/customers/:customer_id/subscriptions
 Example Response:
+
 ![image](https://github.com/sandfortw/TeaAPI/assets/80081206/fe3c0af1-f2e5-4ee1-a749-9021736da5b5)
 
 To Delete a subscription for a customer
 DELETE /api/v1/customers/:customer_id/subscriptions/:id
 Example Response:
+
 ![image](https://github.com/sandfortw/TeaAPI/assets/80081206/a3dbb552-3171-464d-b6fa-d9e58cef9f09)
 
 To Add a subscription for a customer
 POST /api/v1/customers/:customer_id/subscriptions/:id
 Example Response:
+
 ![image](https://github.com/sandfortw/TeaAPI/assets/80081206/fd7862ea-26cd-4efa-b262-67d086465b41)
 
 
 Database:
+
 ![image](https://github.com/sandfortw/TeaAPI/assets/80081206/528886fb-30f3-4f6a-b991-3d10a15ead16)
