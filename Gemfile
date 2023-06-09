@@ -39,6 +39,8 @@ gem 'bootsnap', require: false
 # gem "rack-cors"
 
 group :development, :test do
+  gem 'factory_bot_rails'
+  gem 'pry'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
@@ -48,3 +50,5 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
+gem 'faker'
+gem 'jsonapi-serializer'
