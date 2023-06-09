@@ -11,8 +11,10 @@ RSpec.describe 'Customer Subscriptions API' do
         get "/api/v1/customers/#{customer.id}/subscriptions"
         response = JSON.parse(@response.body, symbolize_names: true)
         expect(response[:data].count).to eq(3)
-        
-
+        response[:data].each do |subscription|
+          expect(subscription.keys).to contain_exactly(:id, :type, :attributes)
+          expect(subscription[:attributes].keys).to contain_exactly(:title, :price, :status, :frequency)
+        end
       end
     end
   end
