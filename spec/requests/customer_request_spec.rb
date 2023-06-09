@@ -28,13 +28,13 @@ RSpec.describe 'Customer Subscriptions API' do
         get "/api/v1/customers/#{@customer.id + 1}/subscriptions"
         expect(response.status).to eq(404)
         response = JSON.parse(@response.body, symbolize_names: true)
-        expect(response).to eq({:error=>"Customer not found"})
+        expect(response).to eq({ error: 'Customer not found' })
       end
     end
   end
 
   describe 'DELETE /api/v1/customers/:customer_id/subscriptions/:id' do
-    before do 
+    before do
       @customer = create(:customer)
       @subscription = create(:subscription)
       @customer.subscriptions << @subscription
@@ -48,9 +48,9 @@ RSpec.describe 'Customer Subscriptions API' do
         response = JSON.parse(@response.body, symbolize_names: true)
         expect(response[:data][:id]).to eq(@subscription.id.to_s)
         expect(response[:data][:attributes]).to eq({ title: @subscription.title,
-                                                           price: @subscription.price,
-                                                           status: @subscription.status,
-                                                           frequency: @subscription.frequency })
+                                                     price: @subscription.price,
+                                                     status: @subscription.status,
+                                                     frequency: @subscription.frequency })
       end
     end
 
@@ -59,7 +59,7 @@ RSpec.describe 'Customer Subscriptions API' do
         delete "/api/v1/customers/#{@customer.id + 1}/subscriptions/#{@subscription.id}"
         expect(response.status).to eq(404)
         response = JSON.parse(@response.body, symbolize_names: true)
-        expect(response).to eq({:error=>"Couldn't find Customer with 'id'=#{@customer.id + 1}"})
+        expect(response).to eq({ error: "Couldn't find Customer with 'id'=#{@customer.id + 1}" })
       end
 
       it 'returns 404 if subscription not found' do
@@ -85,9 +85,9 @@ RSpec.describe 'Customer Subscriptions API' do
         response = JSON.parse(@response.body, symbolize_names: true)
         expect(response[:data][:id]).to eq(@subscription.id.to_s)
         expect(response[:data][:attributes]).to eq({ title: @subscription.title,
-                                                           price: @subscription.price,
-                                                           status: @subscription.status,
-                                                           frequency: @subscription.frequency })
+                                                     price: @subscription.price,
+                                                     status: @subscription.status,
+                                                     frequency: @subscription.frequency })
       end
     end
     describe 'sad path' do
@@ -95,7 +95,7 @@ RSpec.describe 'Customer Subscriptions API' do
         post "/api/v1/customers/#{@customer.id + 1}/subscriptions/#{@subscription.id}"
         expect(response.status).to eq(404)
         response = JSON.parse(@response.body, symbolize_names: true)
-        expect(response).to eq({:error=>"Couldn't find Customer with 'id'=#{@customer.id + 1}"})
+        expect(response).to eq({ error: "Couldn't find Customer with 'id'=#{@customer.id + 1}" })
       end
 
       it 'returns 404 if subscription not found' do
