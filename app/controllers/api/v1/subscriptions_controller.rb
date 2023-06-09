@@ -16,8 +16,8 @@ module Api
 
       def destroy
         customer = Customer.find(params[:customer_id])
-        deleted = customer.subscriptions.delete(params[:subscription_id])
-        render json: SubscriptionSerializer.new(subscription).serializable_hash
+        deleted = customer.subscriptions.delete(params[:id])
+        render json: SubscriptionSerializer.new(deleted).serializable_hash
       end
     end
   end
