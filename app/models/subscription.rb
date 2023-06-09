@@ -5,7 +5,7 @@ class Subscription < ApplicationRecord
   enum frequency: %i[weekly monthly yearly]
   validates_presence_of :status, :frequency
   validates :price, presence: true, numericality: { greater_than: 0 }
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true
 
   has_many :customer_subscriptions
   has_many :customers, through: :customer_subscriptions
